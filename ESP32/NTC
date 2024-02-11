@@ -1,0 +1,24 @@
+const int analogPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the analog voltage from the NTC thermistor
+  int sensorValue = analogRead(analogPin);
+
+  // Convert the analog value to resistance using the voltage divider formula
+  float resistance = 10000.0 / ((1023.0 / sensorValue) - 1.0);
+
+  // Use the Steinhart-Hart equation to convert resistance to temperature in Celsius
+  float temperature = log(resistance / 10000.0) / 3950.0 + 1.0 / 298.15;
+  temperature = 1.0 / temperature - 273.15;
+
+  // Print the temperature to the Serial Monitor
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" °C");
+
+  delay(1000); // Delay for one second before taking the next reading
+}
