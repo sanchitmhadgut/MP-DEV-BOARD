@@ -1,0 +1,30 @@
+#define TRIGGER_PIN  12 // GPIO pin to trigger the ultrasonic sensor
+#define ECHO_PIN     14 // GPIO pin to read the echo signal from the ultrasonic sensor
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(TRIGGER_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+}
+
+void loop() {
+  // Triggering the ultrasonic sensor
+  digitalWrite(TRIGGER_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIGGER_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIGGER_PIN, LOW);
+
+  // Reading the echo signal
+  long duration = pulseIn(ECHO_PIN, HIGH);
+
+  // Calculating distance in centimeters
+  int distance = duration * 0.034 / 2;
+
+  // Print the distance to the serial monitor
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  delay(1000); // Wait for a second before taking the next reading
+}
