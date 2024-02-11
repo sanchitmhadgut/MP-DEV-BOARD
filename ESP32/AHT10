@@ -1,0 +1,35 @@
+#include <WiFi.h>
+#include <Adafruit_AHTX0.h>
+
+
+Adafruit_AHTX0 aht;
+Adafruit_Sensor *aht_humidity, *aht_temp;
+
+void setup() {
+ Serial.begin(115200);
+ delay(1000);
+
+ // Initialize AHT sensor
+ if (!aht.begin()) {
+  Serial.println("Failed to find AHT10/AHT20 chip");
+  while (1) {
+   delay(10);
+  }
+ }
+
+ Serial.println("AHT10/AHT20 Found!");
+ aht_temp = aht.getTemperatureSensor();
+ aht_temp->printSensorDetails();
+
+ aht_humidity = aht.getHumiditySensor();
+ aht_humidity->printSensorDetails();
+}
+
+void loop() {
+ // Get sensor readings
+ sensors_event_t humidity;
+ sensors_event_t temp;
+ aht_humidity->getEvent(&humidity);
+ aht_temp->getEvent(&temp);
+ delay(1000);
+}
