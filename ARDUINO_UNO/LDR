@@ -1,1 +1,27 @@
+const int LDR_PIN = A0;  // Analog pin connected to LDR
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  // Set analog read resolution to 10 bits (0-1023)
+  analogReadResolution(10);
+}
+
+void loop() {
+  // Read the analog value from the LDR
+  int LDR_Reading = analogRead(LDR_PIN);
+  
+  // Convert analog reading to voltage (assuming 3.3V reference)
+  float LDR_Voltage = ((float)LDR_Reading * 3.3 / 1023);
+  
+  // Print the reading and voltage to the serial monitor
+  Serial.print("Reading: "); 
+  Serial.print(LDR_Reading); 
+  Serial.print("\t"); 
+  Serial.print("Voltage: "); 
+  Serial.println(LDR_Voltage);
+  
+  // Add a delay to stabilize readings
+  delay(1000);
+}
 
