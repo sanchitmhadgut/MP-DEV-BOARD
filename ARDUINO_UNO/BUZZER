@@ -1,0 +1,15 @@
+const int buzzerPin = 3;    // GPIO pin where the buzzer is connected
+
+void setup() {
+ 
+  // put your setup code here, to run once:
+ pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite (buzzerPin , 1);
+  delay(5000);
+  digitalWrite(buzzerPin , 0);
+  delay(5000);
+}
