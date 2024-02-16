@@ -3,8 +3,6 @@ const int LDR_PIN = A0;  // Analog pin connected to LDR
 void setup() {
   // Initialize serial communication
   Serial.begin(9600);
-  // Set analog read resolution to 10 bits (0-1023)
-  analogReadResolution(10);
 }
 
 void loop() {
