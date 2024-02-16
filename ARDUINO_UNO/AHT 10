@@ -1,55 +1,23 @@
-#include <Wire.h>
+#include <Adafruit_AHTX0.h>
 
-#include <AHT10.h> //See the library download
-link below!
-
- 
-
-AHT10Class AHT10;
-
- 
+Adafruit_AHTX0 aht;
 
 void setup() {
+  Serial.begin(115200);
+  Serial.println("Adafruit AHT10/AHT20 demo!");
 
-  Serial.begin(9600);
-
-  Wire.begin();
-
-  if
-(AHT10.begin(eAHT10Address_Low))
-
-
-Serial.println("Init AHT10 Success!");
-
-  else
-
-
-Serial.println("Init AHT10 Failed!");
-
+  if (! aht.begin()) {
+    Serial.println("Could not find AHT? Check wiring");
+    while (1) delay(10);
+  }
+  Serial.println("AHT10 or AHT20 found");
 }
 
- 
-
 void loop() {
+  sensors_event_t humidity, temp;
+  aht.getEvent(&humidity, &temp);// populate temp and humidity objects with fresh data
+  Serial.print("Temperature: "); Serial.print(temp.temperature); Serial.println(" degrees C");
+  Serial.print("Humidity: "); Serial.print(humidity.relative_humidity); Serial.println("% rH");
 
-
-Serial.println("//Arduino & AHT10//");
-
-
-Serial.println("Quick Test – Serial Monitor");
-
-
-Serial.println(String("") + "Humidity(%RH):\t\t" +
-AHT10.GetHumidity() + "%");
-
-
-Serial.println(String("") + "Temperature(℃):\t"
-+ AHT10.GetTemperature() + "℃");
-
-
-Serial.println(String("") + "Dewpoint(℃):\t\t"
-+ AHT10.GetDewPoint() + "℃");
-
-  delay(1000);
-
+  delay(500);
 }
