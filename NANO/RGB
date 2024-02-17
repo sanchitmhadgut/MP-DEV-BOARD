@@ -1,0 +1,36 @@
+#define RED_PIN 3    // Digital pin connected to the red LED of the RGB LED
+#define GREEN_PIN 5  // Digital pin connected to the green LED of the RGB LED
+#define BLUE_PIN 6   // Digital pin connected to the blue LED of the RGB LED
+
+void setup() {
+  // Set the pins as OUTPUT
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+}
+
+void loop() {
+  // Turn on Red
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(1000);  // Wait for 1 second
+
+  // Turn on Green
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(1000);  // Wait for 1 second
+
+  // Turn on Blue
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, HIGH);
+  delay(1000);  // Wait for 1 second
+
+  // Turn off all LEDs
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(1000);  // Wait for 1 second
+}
