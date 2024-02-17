@@ -1,0 +1,24 @@
+char receivedChar;
+const char turnON = 'on';
+const char turnOFF = 'off';
+const int LEDpin = 13; // Use any available pin on the Nano, e.g., pin 13 for the built-in LED
+
+void setup() {
+  Serial.begin(115200); // Start serial communication with the computer
+  pinMode(LEDpin, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available()) {
+    receivedChar = Serial.read();
+
+    if (receivedChar == turnON) {
+      Serial.println("LED ON:");
+      digitalWrite(LEDpin, HIGH); // Turn the LED ON
+    }
+    else if (receivedChar == turnOFF) {
+      Serial.println("LED OFF:");
+      digitalWrite(LEDpin, LOW); // Turn the LED off 
+    }  
+  }
+}
