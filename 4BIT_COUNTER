@@ -1,0 +1,21 @@
+#define LED_PIN_1 2    // Change these pin numbers according to your Nano's pinout
+#define LED_PIN_2 3    // Change these pin numbers according to your Nano's pinout
+#define LED_PIN_3 4    // Change these pin numbers according to your Nano's pinout
+#define LED_PIN_4 5    // Change these pin numbers according to your Nano's pinout
+
+void setup() {
+  pinMode(LED_PIN_1, OUTPUT);
+  pinMode(LED_PIN_2, OUTPUT);
+  pinMode(LED_PIN_3, OUTPUT);
+  pinMode(LED_PIN_4, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i < 16; i++) {
+    digitalWrite(LED_PIN_1, (i >> 0) & 1);
+    digitalWrite(LED_PIN_2, (i >> 1) & 1);
+    digitalWrite(LED_PIN_3, (i >> 2) & 1);
+    digitalWrite(LED_PIN_4, (i >> 3) & 1);
+    delay(1000); // Adjust delay to change the speed of counting
+  }
+}
