@@ -1,0 +1,12 @@
+int relayPin = 2; // Use any available digital pin on the Arduino Nano, e.g., pin 2
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(relayPin, HIGH); // Turn the relay on
+  delay(5000); // Wait for 5 seconds
+  digitalWrite(relayPin, LOW); // Turn the relay off
+  delay(5000); // Wait for another 5 seconds
+}
