@@ -1,0 +1,27 @@
+#include <LiquidCrystal.h>
+
+// Create an LCD object. Signals: [ RS, EN, D4, D5, D6, D7 ]
+LiquidCrystal My_LCD(12, 11, 5, 4, 3, 2); // Adjust pin numbers according to Nano's pinout
+
+void setup() {
+  // Initialize the LCD. Parameters: [ Columns, Rows ]
+  My_LCD.begin(16, 2);
+  
+  // Clears the LCD display
+  My_LCD.clear();
+  
+  // Display the first message in home position (0, 0)
+  My_LCD.print("Hello World!");
+  
+  // Set the cursor position to: [Col 5, Row 1]
+  // The next message will start from the 6th character position in the 2nd row
+  // Note: 1st row has an index of 0, the 2nd row has an index of 1
+  My_LCD.setCursor(5, 1);
+  
+  // Display the second message in position (5, 1)
+  My_LCD.print("GG izi");
+}
+
+void loop() {
+  // Do nothing...
+}
