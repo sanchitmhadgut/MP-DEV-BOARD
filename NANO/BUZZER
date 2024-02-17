@@ -1,0 +1,12 @@
+const int buzzerPin = 2; // Use any available pin on the Nano, e.g., pin 2
+
+void setup() {
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(buzzerPin, HIGH); // Turn on the buzzer
+  delay(5000);
+  digitalWrite(buzzerPin, LOW); // Turn off the buzzer
+  delay(5000);
+}
