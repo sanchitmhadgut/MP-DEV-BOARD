@@ -1,0 +1,27 @@
+const int motorpin1 = 2; // Define motorpin1 connected to pin 2
+const int motorpin2 = 3; // Define motorpin2 connected to pin 3
+
+void setup() {
+  // Initialize motorpin1 as an output
+  pinMode(motorpin1, OUTPUT);
+  // Initialize motorpin2 as an output
+  pinMode(motorpin2, OUTPUT);
+  
+  // Initialize the serial communication at 9600 baud rate
+  Serial.begin(9600);
+}
+
+// The loop function runs over and over again forever
+void loop() {
+  // Print "Forward" on the serial monitor
+  Serial.println("\nForward");
+  
+  // Set motorpin1 to a value of 500 (PWM signal)
+  analogWrite(motorpin1, 500);
+  
+  // Set motorpin2 to a value of 0 (no PWM signal)
+  analogWrite(motorpin2, 0);
+  
+  // Add a short delay to allow motor to run forward for a while
+  delay(1000); // Delay for 1 second
+}
