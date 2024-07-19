@@ -1,0 +1,70 @@
+#define ledPin1 8
+#define ledPin2 9
+#define ledPin3 10
+#define ledPin4 11 
+#define switchPin1 2
+#define switchPin2 3
+#define switchPin3 4
+#define switchPin4 5// choose the input pin (for a pushbutton)
+int val = 0; 
+int val1 = 0; 
+int val2 = 0; 
+int val3 = 0; // variable for reading the pin status
+void setup()
+{
+  Serial.begin(115200);
+  pinMode(ledPin1, OUTPUT); 
+  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin3, OUTPUT); 
+  pinMode(ledPin4, OUTPUT); // declare LED as output
+  pinMode(switchPin1, INPUT);
+  pinMode(switchPin2, INPUT);
+  pinMode(switchPin3, INPUT);
+  pinMode(switchPin4, INPUT); // declare pushbutton as input
+}
+void loop()
+{// SWITCH 1
+  val = digitalRead(switchPin1); // read input value
+  if (val == HIGH)
+  { // check if the input is HIGH (button released)
+    digitalWrite(ledPin1, LOW); // turn LED OFF
+  } else {
+    digitalWrite(ledPin1, HIGH); // turn LED ON } }
+    Serial.println(val,"button 1 is presed");
+  }
+  // SWITCH 2
+   val1 = digitalRead(switchPin2); // read input value
+  if (val1 == HIGH)
+  { // check if the input is HIGH (button released)
+    digitalWrite(ledPin2, LOW); // turn LED OFF
+  } else {
+    digitalWrite(ledPin2, HIGH); // turn LED ON } }
+    Serial.println(val1,"button 2 is presed");
+
+    
+  }
+  // SWITCH 3
+   val2 = digitalRead(switchPin3); // read input value
+  if (val2 == HIGH)
+  { // check if the input is HIGH (button released)
+    digitalWrite(ledPin3, LOW); // turn LED OFF
+  } 
+  else {
+    digitalWrite(ledPin3, HIGH); // turn LED ON } }
+    Serial.println(val2,"button 3 is presed");
+
+  }
+  // SWITCH 4
+   val3 = digitalRead(switchPin4); // read input value
+  if (val3 == HIGH)
+  { // check if the input is HIGH (button released)
+    digitalWrite(ledPin4, LOW); // turn LED OFF
+  } 
+  else {
+    digitalWrite(ledPin4, HIGH); // turn LED ON } }
+    Serial.println(val3,"button 4 is presed");
+
+  }
+
+
+}
