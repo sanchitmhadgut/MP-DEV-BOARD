@@ -14,4 +14,4 @@ void loop() {
     {
      Serial.write(bt.read()); /* Print character received on to the serial monitor */
     }
-
+}
