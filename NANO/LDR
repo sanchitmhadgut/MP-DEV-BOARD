@@ -1,1 +1,19 @@
+// Define the pin where the LDR is connected
+const int ldrPin = A0;
 
+void setup() {
+  // Initialize serial communication for debugging
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Read the value from the LDR
+  int ldrValue = analogRead(ldrPin);
+  
+  // Print the value to the Serial Monitor
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue);
+  
+  // Wait for a short time before taking the next reading
+  delay(500);
+}
