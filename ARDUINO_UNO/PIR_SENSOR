@@ -1,0 +1,33 @@
+// Define the pin for the PIR sensor
+const int pirPin = 2;
+
+// Variable to store the PIR sensor state
+int pirState = LOW; 
+
+void setup() {
+  // Initialize the serial monitor
+  Serial.begin(9600);
+
+  // Set the PIR sensor pin as INPUT
+  pinMode(pirPin, INPUT);
+
+  // Print a message to the serial monitor
+  Serial.println("PIR Sensor Test");
+}
+
+void loop() {
+  // Read the state of the PIR sensor
+  pirState = digitalRead(pirPin);
+
+  // Check if the PIR sensor is triggered
+  if (pirState == HIGH) {
+    // Print "Motion detected!" to the serial monitor
+    Serial.println("Motion detected!");
+  } else {
+    // Print "No motion" to the serial monitor
+    Serial.println("No motion");
+  }
+
+  // Wait for a short period before checking again
+  delay(100); 
+}
