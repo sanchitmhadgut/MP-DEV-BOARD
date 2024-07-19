@@ -1,0 +1,25 @@
+// we need to install first "liquidCrystal.h" libery from ardiuno ide
+//RS to Arduino Digital Pin 12
+//E to Arduino Digital Pin 11
+//D4 to Arduino Digital Pin 5
+//D5 to Arduino Digital Pin 4
+//D6 to Arduino Digital Pin 3
+//D7 to Arduino Digital Pin 2
+//A (Anode) to a current limiting resistor (220 ohms) to Arduino 5V (for the backlight)
+//K (Cathode) to Arduino GND
+#include <LiquidCrystal.h>
+
+// Initialize the LCD library with the number of the interface pins
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+void setup() {
+  // Set up the LCD's number of columns and rows
+  lcd.begin(16, 2);
+
+  // Print a message to the LCD
+  lcd.print("Hello, World!");
+}
+
+void loop() {
+  // Do nothing here...
+}
