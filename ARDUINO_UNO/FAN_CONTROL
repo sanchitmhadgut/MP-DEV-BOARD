@@ -1,0 +1,17 @@
+// Define the pin for the fan control
+const int fanPin = 8; // Change this pin if needed
+
+void setup() {
+  // Set the fanPin as an OUTPUT
+  pinMode(fanPin, OUTPUT);
+}
+
+void loop() {
+  // Turn the fan ON
+  digitalWrite(fanPin, HIGH);
+  delay(10000); // Wait for 10 seconds
+
+  // Turn the fan OFF
+  digitalWrite(fanPin, LOW);
+  delay(3000); // Wait for 1 second
+}
