@@ -1,0 +1,64 @@
+// Define the pins for the RGB LED
+const int redPin = 9;
+const int greenPin = 10;
+const int bluePin = 11;
+
+// Define the delay time for each color
+const int colorDelay = 1000; // 1 second
+
+void setup() {
+  // Initialize the RGB LED pins as OUTPUT
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  // Turn off all colors initially
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, LOW);
+}
+
+void loop() {
+  // Turn on red and off the others
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, LOW);
+  delay(colorDelay);
+
+  // Turn on green and off the others
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, LOW);
+  delay(colorDelay);
+
+  // Turn on blue and off the others
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, HIGH);
+  delay(colorDelay);
+
+  // Optionally, add a function to mix colors
+  // Turn on yellow (red + green)
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, LOW);
+  delay(colorDelay);
+
+  // Turn on cyan (green + blue)
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+  delay(colorDelay);
+
+  // Turn on magenta (red + blue)
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, HIGH);
+  delay(colorDelay);
+
+  // Turn off all colors
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, LOW);
+  delay(colorDelay);
+}
