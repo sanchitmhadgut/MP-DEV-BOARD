@@ -1,9 +1,8 @@
-
 #define timeSeconds 10
 
 // Set GPIOs for LED and PIR Motion Sensor
-const int led = 26;
-const int motionSensor = 27;
+const int led = 2;
+const int motionSensor = 3;
 
 // Timer: Auxiliary variables
 unsigned long now = millis();
@@ -12,7 +11,7 @@ boolean startTimer = false;
 boolean motion = false;
 
 // Checks if motion was detected, sets LED HIGH and starts a timer
-void IRAM_ATTR detectsMovement() {
+void detectsMovement() {
   digitalWrite(led, HIGH);
   startTimer = true;
   lastTrigger = millis();
